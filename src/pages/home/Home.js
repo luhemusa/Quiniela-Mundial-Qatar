@@ -1,11 +1,12 @@
-import { Link, Outlet } from "react-router-dom"
-import { useRef } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom"
+import { useEffect, useRef, useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./use-cases/use-dimensions";
 import { MenuToggle } from "../../components/MenuToggle";
 import { Navigation } from "../../components/Navigation";
 import { data } from "../../data"
 import qatar from "../../assets/img/qatar2022.png"
+import { useGetPuntos } from "./use-cases/useGetPuntos";
 
 
 const sidebar = {
@@ -32,6 +33,18 @@ const Home = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
+  const navigate = useNavigate()
+  const user = JSON.parse(localStorage.getItem('user'))
+  const [puntos , getPuntos] = useGetPuntos()
+
+  useEffect(() => {
+    if(!user){
+      navigate('/login');
+    }
+    getPuntos(user.id)
+  },[])
+
+  console.log("puntos: ", puntos)
 
 
   return (
@@ -43,13 +56,14 @@ const Home = () => {
         ref={containerRef}
         style={isOpen ? null : { width: '50px' }}
       >
+        
         <motion.div className="background" variants={sidebar} />
-        <Navigation isOpen={isOpen} />
+        <Navigation isOpen={isOpen} puntos={puntos}/>
         <MenuToggle toggle={() => toggleOpen()} />
 
       </motion.nav>
       <div className="header-home">
-        <img src="http://gfnypanama.com/wp-content/uploads/2018/09/LOGO-CRISTALINA-PNG-HI.png" alt="logo cristalina" width="25%" />
+        <img src="https://aquacristalina.com/wp-content/uploads/2021/05/cropped-cropped-logopc-1-284x195.png" alt="logo cristalina" width="30%" />
       </div>
       <div >
         <Outlet />

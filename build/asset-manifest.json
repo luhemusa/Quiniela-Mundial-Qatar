@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.7f2247cb.css",
-    "main.js": "/static/js/main.6d0c3af0.js",
-    "static/js/787.f3148b6d.chunk.js": "/static/js/787.f3148b6d.chunk.js",
-    "static/media/qatar2022.png": "/static/media/qatar2022.bf9f60a18eb970f7a975.png",
-    "index.html": "/index.html",
-    "main.7f2247cb.css.map": "/static/css/main.7f2247cb.css.map",
-    "main.6d0c3af0.js.map": "/static/js/main.6d0c3af0.js.map",
-    "787.f3148b6d.chunk.js.map": "/static/js/787.f3148b6d.chunk.js.map"
+    "main.css": "/polla/static/css/main.7f2247cb.css",
+    "main.js": "/polla/static/js/main.9224ac99.js",
+    "static/js/787.68609551.chunk.js": "/polla/static/js/787.68609551.chunk.js",
+    "static/media/qatar2022.png": "/polla/static/media/qatar2022.bf9f60a18eb970f7a975.png",
+    "index.html": "/polla/index.html",
+    "main.7f2247cb.css.map": "/polla/static/css/main.7f2247cb.css.map",
+    "main.9224ac99.js.map": "/polla/static/js/main.9224ac99.js.map",
+    "787.68609551.chunk.js.map": "/polla/static/js/787.68609551.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7f2247cb.css",
-    "static/js/main.6d0c3af0.js"
+    "static/js/main.9224ac99.js"
   ]
 }

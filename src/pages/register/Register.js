@@ -9,6 +9,7 @@ import './Register.css'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import DivMotionFade from "../../components/motion/DivMotionFade";
+import { SignUp } from "./use-cases/SignUp";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false)
@@ -58,12 +59,10 @@ const Register = () => {
 
                             onSubmit={(fields, { setSubmitting }) => {
 
+                                SignUp(fields, navigate)
                                 console.log("Fields: ", fields)
-
-                                setTimeout(() => {
-                                    alert(JSON.stringify(fields, null, 2));
-                                    setSubmitting(false);
-                                }, 400);
+                                setSubmitting(false);
+                               
                             }}
                         >
                             {({
@@ -122,7 +121,7 @@ const Register = () => {
 
                                         <TextField
                                             name="repassword"
-                                            type={showPassword ? "text" : "repassword"}
+                                            type={showPassword ? "text" : "password"}
                                             label="Repita su Contraseña"
                                             value={values.repassword}
                                             onChange={handleChange('repassword')}

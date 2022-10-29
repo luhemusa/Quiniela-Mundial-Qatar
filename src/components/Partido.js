@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import { useField } from 'formik';
 import { useEffect, useState } from 'react';
 
-const Partido = ({ data, resultsGrupo, setResultsGrupo, index }) => {
+const Partido = ({ data, resultsGrupo, setResultsGrupo, index, color }) => {
     
     const cargarImagen = require.context(`../assets/banderas`, true);
     const [ equipoA, setEquipoA] = useState('')
@@ -62,7 +62,7 @@ const Partido = ({ data, resultsGrupo, setResultsGrupo, index }) => {
                     </div>
                 </Grid>
                 <Grid item xs={3}>
-                    <div className="container-inputs-partido">
+                    <div className="container-inputs-partido" style={{border: `3px solid ${color}`}}>
                         <input type="number" minLength="1" maxLength="1" onChange={(e) => handleChangeMarcador(e.target.value, 'A')}  />
                         <p> | </p>
                         <input type="number" minLength="1" maxLength="1" onChange={(e) => handleChangeMarcador(e.target.value, 'B')}/>

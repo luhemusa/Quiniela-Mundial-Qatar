@@ -9,12 +9,8 @@ import { routes } from "./routes/layouts_routes";
 
 const App = () => {
 
-    const user = { 
-      name: 'Luis Mujica',
-      user: 'luis@luhemusadev.com',
-    }
+  const user = JSON.parse(localStorage.getItem('user'))
 
-  /* const user = null */
 
   return (
     <div>
@@ -28,8 +24,8 @@ const App = () => {
               path={`/`}
               element={
                 user !== null
-                  ? <Navigate to={`${process.env.PUBLIC_URL}/inicio`} />
-                  : <Navigate to={`${process.env.PUBLIC_URL}/login`} />
+                  ? <Navigate to={`/inicio`} />
+                  : <Navigate to={`/login`} />
               }
             />
 

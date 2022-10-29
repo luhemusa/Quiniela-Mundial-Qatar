@@ -24,8 +24,15 @@ export const MenuItem = ({ i, item }) => {
   const navigate = useNavigate()
 
   const NavigateTo = () => {
-    console.log(item.path)
-    navigate(item.path)
+    if(item.title === 'Logout'){
+      window.localStorage.removeItem('user');
+      console.log(item.path)
+      navigate(item.path)
+    }else{
+      console.log(item.path)
+      navigate(item.path)
+    }
+    
   }
 
   return (

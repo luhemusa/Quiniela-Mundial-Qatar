@@ -21,6 +21,7 @@ nav {
   left: 0;
   bottom: 0;
   width: 300px;
+  z-index: 99;
 }
 
 .background {
@@ -154,7 +155,7 @@ li {
   font-family: 'Roboto';
   font-size: 12px;
   font-weight: bold;
-  color: #3655a0;
+  color: #000000;/* #3655a0; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,7 +245,6 @@ input[type=number] { -moz-appearance:textfield; }
   text-align: center;
   top: 40px;
   left: 20px;
-  z-index: -1;
 }
 
 .title-group h5{
@@ -253,7 +253,6 @@ input[type=number] { -moz-appearance:textfield; }
   justify-content: center;
   align-items: center;
   padding: 5px 0px;
-  background-color: rgb(5, 255, 109);
   border-radius: 20px;
   color:#3655a0;
   font-size: 18px

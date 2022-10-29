@@ -9,6 +9,7 @@ import './Login.css'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import DivMotionFade from "../../components/motion/DivMotionFade";
+import { LoginUser } from "./use-cases/useLogin";
 
 
 const Login = () => {
@@ -27,7 +28,7 @@ const Login = () => {
         <div>
             <Container className="login-container">
                 <img src="http://gfnypanama.com/wp-content/uploads/2018/09/LOGO-CRISTALINA-PNG-HI.png" alt="logo cristalina" width="30%" />
-                <h1 style={{color: 'white'}}> Login </h1>
+                <h1 style={{ color: 'white' }}> Login </h1>
 
                 <DivMotionFade>
 
@@ -49,12 +50,9 @@ const Login = () => {
 
                             onSubmit={(fields, { setSubmitting }) => {
 
-                                console.log("Fields: ", fields)
+                                LoginUser(fields, navigate);
+                                setSubmitting(false);
 
-                                setTimeout(() => {
-                                    alert(JSON.stringify(fields, null, 2));
-                                    setSubmitting(false);
-                                }, 400);
                             }}
                         >
                             {({
@@ -100,18 +98,20 @@ const Login = () => {
                                         />
                                         <p className="login-error-input"><ErrorMessage name="password" /></p>
 
+
+                                        <Button variant="outlined" sx={{ color: 'rgba(5,98,182,1)', border: '2px solid rgba(5,98,182,1)', width: '100%', borderRadius: '20px' }} type="submit" disabled={isSubmitting}>
+                                            Ingresar
+                                        </Button>
                                     </div>
 
 
-                                    <Button variant="outlined" sx={{ color: 'rgba(5,98,182,1)', border: '2px solid rgba(5,98,182,1)', width: '70%', borderRadius: '20px' }} type="submit" disabled={isSubmitting}>
-                                        Ingresar
-                                    </Button>
+
                                 </Form>
                             )}
                         </Formik>
 
                         <br />
-                        <Button variant="contained" sx={{ color: 'white', border: '2px solid rgba(5,98,182,1)', width: '70%', borderRadius: '20px' }} onClick={handleClickRegister} >
+                        <Button variant="contained" sx={{ color: 'white', border: '2px solid rgba(5,98,182,1)', width: '100%', borderRadius: '20px' }} onClick={handleClickRegister} >
                             Registrarse
                         </Button>
                     </Box>
