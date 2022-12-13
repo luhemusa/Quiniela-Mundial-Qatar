@@ -13,6 +13,12 @@ import { SetResults } from './use-cases/setResults.js';
 import { useNavigate } from 'react-router-dom';
 import LogoFinal from '../../assets/img/final.png'
 
+const schema = Yup.object().shape({
+    octavo_1: Yup.object().shape({
+      empate: Yup.string().required(),
+    }),
+  });
+
 const Inicio = () => {
     const [mundial, setMundial] = useState(data)
     const [resultadosSeccion, setResultadosSeccion] = useState([{}, {}, {}, {}, {}, {}, {}, {}])
@@ -29,7 +35,7 @@ const Inicio = () => {
 
                         initialValues={{
 
-                            octavo_1: '',
+                            octavo_1: { empate: '', ganador: '',},
                             octavo_2: '',
                             octavo_3: '',
                             octavo_4: '',
@@ -50,17 +56,22 @@ const Inicio = () => {
 
                         }}
 
-                        validationSchema={Yup.object().shape({
-                            //TODO
-                        })}
+                        validationSchema={
+                        /*     Yup.object().shape({
+                            octavo_1: Yup.object({
+                                empate: Yup.string().required(),
+                              }),
+                        }) */
+                        schema
+                    }
 
                         onSubmit={(fields, { setSubmitting }) => {
                             const consolidado = {
-                                user:  user.id,
+                                user: user.id,
                                 fase_grupos: resultadosSeccion,
                                 octavos: [
-                                    fields.octavo_1, 
-                                    fields.octavo_2, 
+                                    fields.octavo_1,
+                                    fields.octavo_2,
                                     fields.octavo_3,
                                     fields.octavo_4,
                                     fields.octavo_5,
@@ -68,7 +79,7 @@ const Inicio = () => {
                                     fields.octavo_7,
                                     fields.octavo_8
                                 ],
-                                cuartos:[
+                                cuartos: [
                                     fields.cuarto_1,
                                     fields.cuarto_2,
                                     fields.cuarto_3,
@@ -80,8 +91,8 @@ const Inicio = () => {
                                 ],
                                 final: fields.final
                             }
-                            
-                            SetResults(consolidado, navigate)
+                            console.log('Fue')
+                            // SetResults(consolidado, navigate)
                             setSubmitting(false);
 
                         }}
@@ -117,8 +128,16 @@ const Inicio = () => {
                                 {/* Octavos de Final */}
                                 <div style={{ textAlign: 'center' }}> <h1 className="title-octavos">8vo de Final</h1> </div>
                                 <div className="container-octavos">
-                                    <Octavos name={"octavo_1"} set={setFieldValue} grupo1={'GRUPO A'} grupo2={'GRUPO B'} label="1º GRUPO A - 2º GRUPO B" number="1" />
-                                    <Octavos name={"octavo_2"} set={setFieldValue} grupo1={'GRUPO C'} grupo2={'GRUPO D'} label="1º GRUPO C - 2º GRUPO D" number="2" />
+
+                                    <div>
+                                        <Octavos name={"octavo_1"} set={setFieldValue} grupo1={'GRUPO A'} grupo2={'GRUPO B'} label="1º GRUPO A - 2º GRUPO B" number="1" />
+                                        <ErrorMessage name="octavo_1" />
+                                    </div>
+                                    <div>
+                                        <Octavos name={"octavo_2"} set={setFieldValue} grupo1={'GRUPO C'} grupo2={'GRUPO D'} label="1º GRUPO C - 2º GRUPO D" number="2" />
+                                        <ErrorMessage name="octavo_2" />
+                                    </div>
+
                                     <Octavos name={"octavo_3"} set={setFieldValue} grupo1={'GRUPO B'} grupo2={'GRUPO A'} label="1º GRUPO B - 2º GRUPO A" number="3" />
                                     <Octavos name={"octavo_4"} set={setFieldValue} grupo1={'GRUPO D'} grupo2={'GRUPO C'} label="1º GRUPO D - 2º GRUPO C" number="4" />
                                     <Octavos name={"octavo_5"} set={setFieldValue} grupo1={'GRUPO E'} grupo2={'GRUPO F'} label="1º GRUPO E - 2º GRUPO F" number="5" />

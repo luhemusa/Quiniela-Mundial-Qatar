@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/polla/static/css/main.7f2247cb.css",
-    "main.js": "/polla/static/js/main.9224ac99.js",
+    "main.css": "/polla/static/css/main.c118a899.css",
+    "main.js": "/polla/static/js/main.84b0f966.js",
     "static/js/787.68609551.chunk.js": "/polla/static/js/787.68609551.chunk.js",
     "static/media/qatar2022.png": "/polla/static/media/qatar2022.bf9f60a18eb970f7a975.png",
+    "static/media/final.png": "/polla/static/media/final.1704bcbcb94df0fd88f0.png",
     "index.html": "/polla/index.html",
-    "main.7f2247cb.css.map": "/polla/static/css/main.7f2247cb.css.map",
-    "main.9224ac99.js.map": "/polla/static/js/main.9224ac99.js.map",
+    "main.c118a899.css.map": "/polla/static/css/main.c118a899.css.map",
+    "main.84b0f966.js.map": "/polla/static/js/main.84b0f966.js.map",
     "787.68609551.chunk.js.map": "/polla/static/js/787.68609551.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f2247cb.css",
-    "static/js/main.9224ac99.js"
+    "static/css/main.c118a899.css",
+    "static/js/main.84b0f966.js"
   ]
 }
